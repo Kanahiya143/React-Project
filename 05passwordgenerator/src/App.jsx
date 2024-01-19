@@ -12,14 +12,14 @@ function App() {
     // useRef hook
     const pwdRef = useRef(null)  
 
-    const copyPwd = ()=>{
+    const copyPwd = ()=>{   
         pwdRef.current?.select();
         pwdRef.current?.setSelectionRange(0,100)
         copied('Copied')
         window.navigator.clipboard.writeText(password)
     } 
 
-    const passGenerator = useCallback(()=>{
+    const passGenerator = useCallback(()=>{  // useCallback hook used for optimization
         let pass = '';
         let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTWXYZ"
         if(numAllowed) str += '12345667890';
@@ -33,7 +33,7 @@ function App() {
         setPassword(pass) 
     },[length,numAllowed,splCharAllowed,setPassword])
 
-    useEffect(() => {
+    useEffect(() => {  // this hook execute according to dependancies
         passGenerator();
     }, [passGenerator])
     
