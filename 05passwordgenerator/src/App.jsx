@@ -33,7 +33,7 @@ function App() {
         setPassword(pass) 
     },[length,numAllowed,splCharAllowed,setPassword])
 
-    useEffect(() => {  // this hook execute according to dependancies
+    useEffect(() => {  // this hook execute the passwordGen fn accdng to dependancies
         passGenerator();
     }, [passGenerator])
     
